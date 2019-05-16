@@ -62,6 +62,35 @@ public final class ImplUtils {
     }
 
     /**
+     * Checks if the string is null or empty.
+     *
+     * @param string String being checked for nullness or emptiness.
+     * @return True if the string is null or empty, false otherwise.
+     */
+    public static boolean isNullOrEmpty(String string) {
+        return string == null || string.isEmpty();
+    }
+
+    /**
+     * Checks if the string is null, empty, or consists only of whitespace.
+     * @param string String being checked for nullness or whitespace.
+     * @return True if the string is null, empty, or contains only whitespace, false otherwise.
+     */
+    public static boolean isNullOrWhiteSpace(String string) {
+        if (isNullOrEmpty(string)) {
+            return true;
+        }
+
+        for (int index = 0; index < string.length(); index++) {
+            if (!Character.isWhitespace(string.charAt(index))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
      * Checks if the array is null or empty.
      * @param array Array being checked for nullness or emptiness.
      * @return True if the array is null or empty, false otherwise.
